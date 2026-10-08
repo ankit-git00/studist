@@ -1,0 +1,239 @@
+#!/usr/bin/bash 
+
+set -euo pipefail
+
+API=""
+
+usage(){
+
+cat <<EOF
+Usage: st <command> [args]
+EOF
+}
+
+cmd_start(){
+    local minutes="${1:-}"
+    
+    if [[ -z "$minutes" ]]; then
+        echo "Please specify the duration in minutes."
+        exit 1
+    fi
+
+    echo "Starting for $minutes minutes..."
+}
+
+main(){
+    local cmd="${1:-help}"
+    shift || true
+    echo "Starting the script..."
+
+    case "$cmd" in 
+        start)
+            cmd_start "$@";;
+        help)
+            usage
+            ;;
+        *)
+            echo "Unknown command: $cmd"
+            usage
+            exit 1
+            ;;
+    esac
+}
+
+main "$@"
+
+
+
+curl --silent --show-error --fail-with-body \
+  -X POST "$STUDIST_URL/auth/v1/token?grant_type=refresh_token" \
+  -H "apikey: $SUPABASE_ANON_KEY" \
+  -H "Content-Type: application/json" \
+  --data '{"refresh_token":"YOUR_REFRESH_TOKEN"}'
+
+
+
+  [
+    {
+        "id": "1f4b159b-7762-4fb3-bdb7-bbb430fefff0",
+        "user_id": "afe35d13-4723-4170-9a42-2b64af635c08",
+        "name": "Huawei",
+        "description": null,
+        "color": "#2A78D6",
+        "icon": null,
+        "sort_order": 0,
+        "is_archived": false,
+        "created_at": "2026-09-24T07:07:09.807521+00:00",
+        "updated_at": "2026-09-24T07:07:09.807521+00:00",
+        "deleted_at": null,
+        "icon_key": null
+    },
+    {
+        "id": "0ebac7e1-bfb4-4e29-9432-703b7d6c2a22",
+        "user_id": "afe35d13-4723-4170-9a42-2b64af635c08",
+        "name": "PhD",
+        "description": null,
+        "color": "#EB6834",
+        "icon": null,
+        "sort_order": 1,
+        "is_archived": false,
+        "created_at": "2026-09-24T07:07:09.807521+00:00",
+        "updated_at": "2026-09-24T07:07:09.807521+00:00",
+        "deleted_at": null,
+        "icon_key": null
+    },
+    {
+        "id": "19731965-6148-4855-8740-be3ba921b11d",
+        "user_id": "afe35d13-4723-4170-9a42-2b64af635c08",
+        "name": "Other",
+        "description": null,
+        "color": "#1BAF7A",
+        "icon": null,
+        "sort_order": 2,
+        "is_archived": false,
+        "created_at": "2026-09-24T07:07:09.807521+00:00",
+        "updated_at": "2026-09-24T07:07:09.807521+00:00",
+        "deleted_at": null,
+        "icon_key": null
+    },
+    {
+        "id": "3cbdfcca-6594-46a8-bce4-9ec4ab85b4b6",
+        "user_id": "afe35d13-4723-4170-9a42-2b64af635c08",
+        "name": "cf",
+        "description": null,
+        "color": "#3B82F6",
+        "icon": null,
+        "sort_order": 3,
+        "is_archived": false,
+        "created_at": "2026-09-24T07:07:12.078279+00:00",
+        "updated_at": "2026-09-24T07:07:12.078279+00:00",
+        "deleted_at": null,
+        "icon_key": "book"
+    },
+    {
+        "id": "15a751f9-1686-4a9d-a701-0e0e47001154",
+        "user_id": "afe35d13-4723-4170-9a42-2b64af635c08",
+        "name": "LLD",
+        "description": null,
+        "color": "#F97316",
+        "icon": null,
+        "sort_order": 4,
+        "is_archived": false,
+        "created_at": "2026-09-24T07:07:12.626246+00:00",
+        "updated_at": "2026-09-24T07:07:12.626246+00:00",
+        "deleted_at": null,
+        "icon_key": "book"
+    },
+    {
+        "id": "28cda920-0ceb-4da2-835c-f1f7a93289d5",
+        "user_id": "afe35d13-4723-4170-9a42-2b64af635c08",
+        "name": "Booking Prjoect(Spring Boot)",
+        "description": null,
+        "color": "#10B981",
+        "icon": null,
+        "sort_order": 5,
+        "is_archived": false,
+        "created_at": "2026-09-24T07:07:13.582617+00:00",
+        "updated_at": "2026-09-24T07:07:13.582617+00:00",
+        "deleted_at": null,
+        "icon_key": "book"
+    },
+    {
+        "id": "fb83479b-9286-418f-8624-36ccf6f7d1d1",
+        "user_id": "afe35d13-4723-4170-9a42-2b64af635c08",
+        "name": "Interview Prep",
+        "description": null,
+        "color": "#8B5CF6",
+        "icon": null,
+        "sort_order": 6,
+        "is_archived": false,
+        "created_at": "2026-09-24T07:07:46.653099+00:00",
+        "updated_at": "2026-09-24T07:07:46.653099+00:00",
+        "deleted_at": null,
+        "icon_key": "book"
+    },
+    {
+        "id": "3175c77b-0a32-4c2b-8aa6-a0a4e891e2f3",
+        "user_id": "afe35d13-4723-4170-9a42-2b64af635c08",
+        "name": "Badminton Score Keeper",
+        "description": null,
+        "color": "#F43F5E",
+        "icon": null,
+        "sort_order": 7,
+        "is_archived": false,
+        "created_at": "2026-09-24T07:09:18.233906+00:00",
+        "updated_at": "2026-09-24T07:09:18.233906+00:00",
+        "deleted_at": null,
+        "icon_key": "book"
+    },
+    {
+        "id": "07eccf69-ac96-47f2-aae2-34eb712a49a1",
+        "user_id": "afe35d13-4723-4170-9a42-2b64af635c08",
+        "name": "Apply",
+        "description": null,
+        "color": "#F59E0B",
+        "icon": null,
+        "sort_order": 8,
+        "is_archived": false,
+        "created_at": "2026-09-26T09:15:36.982281+00:00",
+        "updated_at": "2026-09-26T09:15:36.982281+00:00",
+        "deleted_at": null,
+        "icon_key": "book"
+    },
+    {
+        "id": "1612cdc3-88cc-4937-8f0a-f1a396a39720",
+        "user_id": "afe35d13-4723-4170-9a42-2b64af635c08",
+        "name": "Job assessment",
+        "description": null,
+        "color": "#06B6D4",
+        "icon": null,
+        "sort_order": 9,
+        "is_archived": false,
+        "created_at": "2026-09-29T13:50:50.725695+00:00",
+        "updated_at": "2026-09-29T13:50:50.725695+00:00",
+        "deleted_at": null,
+        "icon_key": "briefcase"
+    },
+    {
+        "id": "30421314-dd24-48e3-be68-0117560cb345",
+        "user_id": "afe35d13-4723-4170-9a42-2b64af635c08",
+        "name": "Timer project( foucsing on learning shell)",
+        "description": null,
+        "color": "#6366F1",
+        "icon": null,
+        "sort_order": 10,
+        "is_archived": false,
+        "created_at": "2026-10-02T13:37:33.698662+00:00",
+        "updated_at": "2026-10-02T13:37:33.698662+00:00",
+        "deleted_at": null,
+        "icon_key": "project"
+    },
+    {
+        "id": "94bd082e-1fe1-41ae-adba-003b69dc9b2a",
+        "user_id": "afe35d13-4723-4170-9a42-2b64af635c08",
+        "name": "youtube",
+        "description": null,
+        "color": "#3B82F6",
+        "icon": null,
+        "sort_order": 11,
+        "is_archived": false,
+        "created_at": "2026-10-05T04:27:05.530366+00:00",
+        "updated_at": "2026-10-05T04:27:05.530366+00:00",
+        "deleted_at": null,
+        "icon_key": "book"
+    },
+    {
+        "id": "e1f0c008-3b9f-4e8b-8cc6-a221cdfd3e66",
+        "user_id": "afe35d13-4723-4170-9a42-2b64af635c08",
+        "name": "netflix",
+        "description": null,
+        "color": "#F97316",
+        "icon": null,
+        "sort_order": 12,
+        "is_archived": false,
+        "created_at": "2026-10-05T04:27:06.12164+00:00",
+        "updated_at": "2026-10-05T04:27:06.12164+00:00",
+        "deleted_at": null,
+        "icon_key": "book"
+    }
+]
